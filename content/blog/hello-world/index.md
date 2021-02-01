@@ -1,7 +1,8 @@
 ---
-title: Hello World
+title: Movimientos Palindromicos cortos regularmente interespaciados
 date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+header: "./salty_egg.jpg"
+description: "A salted duck egg is a Chinese preserved food product made by soaking duck eggs in brine, or packing each egg in damp, salted charcoal. lorem ipsum dolor sit am"
 ---
 
 This is my first post on my new fake blog! How exciting!

@@ -1,5 +1,10 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { Container, Row, Col } from "reactstrap"
+import BlogHeader from "gatsby-background-image"
+
+import { BlogPostContainer } from "../styleds/templates/blog-post"
+import { ImageText as BlogHeaderContainer } from "../styleds/Hero.js"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -16,24 +21,38 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
+      <BlogHeader fluid={post.frontmatter.header.childImageSharp.fluid}>
+        <BlogHeaderContainer>
+          <h1 className="text-center">{post.frontmatter.title}</h1>
+
+          <div className="d-flex justify-content-between">
+            <p className="d-block mx-5">{post.frontmatter.date}</p>
+            <p className="d-block mx-5">{post.timeToRead}m de lectura</p>
+          </div>
+        </BlogHeaderContainer>
+      </BlogHeader>
+      <Container fluid className="p-0 p-md-auto">
+        <Row className="justify-content-center p-0 p-md-auto m-0">
+          <Col sm="12" md="8" className="p-0 p-md-auto">
+            <BlogPostContainer
+              className="px-5 pt-5"
+              itemScope
+              itemType="http://schema.org/Article"
+            >
+              <section
+                dangerouslySetInnerHTML={{ __html: post.html }}
+                itemProp="articleBody"
+              />
+              <hr />
+            </BlogPostContainer>
+          </Col>
+          <Col sm="12">
+            <footer>
+              <Bio />
+            </footer>
+          </Col>
+        </Row>
+      </Container>
       <nav className="blog-post-nav">
         <ul
           style={{
@@ -83,9 +102,17 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM, YYYY")
         description
+        header {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
+      timeToRead
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {
