@@ -6,6 +6,7 @@ export const PostItemContainer = styled.article`
   border-radius: 1rem;
   transition: all 0.3s ease;
   box-shadow: 0px 0px 15px #171717;
+  margin:1.5rem;
 
   &:hover {
     transform: scale(1.03);
