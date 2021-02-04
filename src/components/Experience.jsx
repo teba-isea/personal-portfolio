@@ -80,11 +80,11 @@ const Experience = () => {
                 fluid={pageQuery.file.childImageSharp.fluid}
                 className="img-fluid w-100"
               >
-            <a
-              href="https://portafolio.cgaautomation.com"
-              target="_blank"
-              rel="noopener noreferrer"
-    >
+                <a
+                  href="https://portafolio.cgaautomation.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div className="bg-text">
                     <h1 className="text-center">CGA Portfolio</h1>
                     <p>
@@ -102,16 +102,18 @@ const Experience = () => {
             </Fade>
           </Col>
           <Col sm="6">
-            <Fade bottom delay={1100}>
-              <div className="d-flex justify-content-center">
-                <Button className="button w-100 w-md-75" outline>
-                  <h1>Download CV!</h1>
-                </Button>
-              </div>
-            </Fade>
+            <a href="https://resume.io/r/Fx7B3prx0">
+              <Fade bottom delay={1100}>
+                <div className="d-flex justify-content-center">
+                  <Button className="button w-100 w-md-75" outline>
+                    <h1>Download CV!</h1>
+                  </Button>
+                </div>
+              </Fade>
+            </a>
           </Col>
           <Col sm="6">
-	    <Link to={"/portfolio"}> 
+            <Link to={"/portfolio"}>
               <Fade bottom delay={1100}>
                 <div className="d-flex justify-content-center">
                   <Button className="button w-100 w-md-75" outline>
