@@ -5,6 +5,12 @@ import BackgroundImage from "gatsby-background-image"
 import { Fade } from "react-reveal"
 import { Container, Row, Col, Form, FormGroup, Label, Input } from "reactstrap"
 
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
+
 const Contact = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -19,6 +25,27 @@ const Contact = () => {
   `)
   const imgFluid = data.file.childImageSharp.fluid
 
+   const [state, setState] = React.useState({})
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch((error) => alert(error))
+  }
+
   return (
     <BackgroundImage fluid={imgFluid}>
       <ContactContainer>
@@ -28,11 +55,18 @@ const Contact = () => {
             <Col md="6">
               <Fade left>
                 <div className="form-container shadow-lg">
-                  <form name="contact" method="POST" data-netlify="true">
+		  <form 
+		    name="contact"
+		    method="post"
+		    action="/thanks/"
+		    data-netlify="true"
+		    data-netlify-honeypot="bot-field"
+		    onSubmit={handleSubmit}
+		  >
                     <input
                       type="hidden"
                       name="form-name"
-                      value="the-name-of-the-html-form"
+                      value="contact"
                     />
                     <label>
                       <h3>What's your Name?</h3>
@@ -41,6 +75,7 @@ const Contact = () => {
                       type="text"
                       name="name"
                       placeholder="John Smith"
+		      onChange={HandleChange}
                       required
                     />
 
@@ -51,6 +86,7 @@ const Contact = () => {
                       type="email"
                       name="email"
                       placeholder="example@mail.com"
+		      onChange={HandleChange}
                       required
                     />
                     <label>
@@ -61,6 +97,7 @@ const Contact = () => {
                       minlength="5"
                       maxlength="546"
                       name="subjet"
+		      onChange={HandleChange}
                       required
                     />
                     <button type="submit">Send!</button>
