@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { navigate } from "gatsby-link"
 import styled from "@emotion/styled"
 import BackgroundImage from "gatsby-background-image"
 import { Fade } from "react-reveal"
@@ -42,7 +43,9 @@ const Contact = () => {
         ...state,
       }),
     })
-      .then(() => navigate(form.getAttribute("action")))
+      .then(() =>
+        alert("Thanks for contact me, I will answer you as soon as possible")
+      )
       .catch(error => alert(error))
   }
 
