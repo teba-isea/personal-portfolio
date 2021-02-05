@@ -7,8 +7,8 @@ import { Container, Row, Col, Form, FormGroup, Label, Input } from "reactstrap"
 
 function encode(data) {
   return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
 }
 
 const Contact = () => {
@@ -25,25 +25,25 @@ const Contact = () => {
   `)
   const imgFluid = data.file.childImageSharp.fluid
 
-   const [state, setState] = React.useState({})
+  const [state, setState] = React.useState({})
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault()
     const form = e.target
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        'form-name': form.getAttribute('name'),
+        "form-name": form.getAttribute("name"),
         ...state,
       }),
     })
-      .then(() => navigate(form.getAttribute('action')))
-      .catch((error) => alert(error))
+      .then(() => navigate(form.getAttribute("action")))
+      .catch(error => alert(error))
   }
 
   return (
@@ -55,19 +55,15 @@ const Contact = () => {
             <Col md="6">
               <Fade left>
                 <div className="form-container shadow-lg">
-		  <form 
-		    name="contact"
-		    method="post"
-		    action="/thanks/"
-		    data-netlify="true"
-		    data-netlify-honeypot="bot-field"
-		    onSubmit={handleSubmit}
-		  >
-                    <input
-                      type="hidden"
-                      name="form-name"
-                      value="contact"
-                    />
+                  <form
+                    name="contact"
+                    method="post"
+                    action="/thanks/"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
+                    onSubmit={handleSubmit}
+                  >
+                    <input type="hidden" name="form-name" value="contact" />
                     <label>
                       <h3>What's your Name?</h3>
                     </label>
@@ -75,7 +71,7 @@ const Contact = () => {
                       type="text"
                       name="name"
                       placeholder="John Smith"
-		      onChange={HandleChange}
+                      onChange={handleChange}
                       required
                     />
 
@@ -86,7 +82,7 @@ const Contact = () => {
                       type="email"
                       name="email"
                       placeholder="example@mail.com"
-		      onChange={HandleChange}
+                      onChange={handleChange}
                       required
                     />
                     <label>
@@ -94,10 +90,10 @@ const Contact = () => {
                     </label>
                     <textarea
                       rows="4"
-                      minlength="5"
-                      maxlength="546"
+                      minLength="5"
+                      maxLength="546"
                       name="subjet"
-		      onChange={HandleChange}
+                      onChange={handleChange}
                       required
                     />
                     <button type="submit">Send!</button>
