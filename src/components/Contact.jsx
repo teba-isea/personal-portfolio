@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import BackgroundImage from "gatsby-background-image"
-import {Fade} from "react-reveal"
+import { Fade } from "react-reveal"
 import { Container, Row, Col, Form, FormGroup, Label, Input } from "reactstrap"
 
 const Contact = () => {
@@ -26,67 +26,78 @@ const Contact = () => {
           <Row className="justify-content-around">
             <h1>Let's Work Together</h1>
             <Col md="6">
-	    <Fade left>
-              <div className="form-container shadow-lg">
-                <form name="contact" method="POST" data-netlify="true">
-                  <label>
-                    <h3>What's your Name?</h3>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="John Smith"
-                    required
-                  />
+              <Fade left>
+                <div className="form-container shadow-lg">
+                  <form name="contact" method="POST" data-netlify="true">
+                    <input
+                      type="hidden"
+                      name="form-name"
+                      value="the-name-of-the-html-form"
+                    />
+                    <label>
+                      <h3>What's your Name?</h3>
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="John Smith"
+                      required
+                    />
 
-                  <label>
-                    <h3>And your Email?</h3>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="example@mail.com"
-                    required
-                  />
-                  <label>
-                    <h3>How can I help you?</h3>
-                  </label>
-                  <textarea
-                    rows="4"
-                    minlength="5"
-                    maxlength="546"
-                    name="subjet"
-                    required
-                  />
-                  <button type="submit">Send!</button>
-                </form>
-              </div>
-	  </Fade>
+                    <label>
+                      <h3>And your Email?</h3>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="example@mail.com"
+                      required
+                    />
+                    <label>
+                      <h3>How can I help you?</h3>
+                    </label>
+                    <textarea
+                      rows="4"
+                      minlength="5"
+                      maxlength="546"
+                      name="subjet"
+                      required
+                    />
+                    <button type="submit">Send!</button>
+                  </form>
+                </div>
+              </Fade>
             </Col>
             <Col md="6">
-	  <Fade right>
-              <ul>
-                <li>
-                  <h2><span>&#9733;</span>I will be happy to answer you any questions</h2>
-                </li>
+              <Fade right>
+                <ul>
+                  <li>
+                    <h2>
+                      <span>&#9733;</span>I will be happy to answer you any
+                      questions
+                    </h2>
+                  </li>
 
-                <li>
-                  <h2><span>&#9733;</span>I will respond in less than 12h</h2>
-                </li>
+                  <li>
+                    <h2>
+                      <span>&#9733;</span>I will respond in less than 12h
+                    </h2>
+                  </li>
 
-                <li>
-                  <h2>
-                    <span>&#9733;</span>I will always be open to consider any offer,proposition and
-                    recommendation
-                  </h2>
-                </li>
-                <li>
-                  <h2>
-                    <span>&#9733;</span>I will not share any information about this form with anyone
-                  </h2>
-                </li>
-              </ul>
-	  </Fade>
+                  <li>
+                    <h2>
+                      <span>&#9733;</span>I will always be open to consider any
+                      offer,proposition and recommendation
+                    </h2>
+                  </li>
+                  <li>
+                    <h2>
+                      <span>&#9733;</span>I will not share any information about
+                      this form with anyone
+                    </h2>
+                  </li>
+                </ul>
+              </Fade>
             </Col>
           </Row>
         </Container>
@@ -113,9 +124,9 @@ const ContactContainer = styled.div`
     margin: 2rem;
   }
 
-  span{
-    font-size:4rem;
-    margin-right:1rem;
+  span {
+    font-size: 4rem;
+    margin-right: 1rem;
   }
   .form-container {
     background-color: var(--raisin-black);
