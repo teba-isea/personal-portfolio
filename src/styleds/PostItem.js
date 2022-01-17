@@ -6,7 +6,7 @@ export const PostItemContainer = styled.article`
   border-radius: 1rem;
   transition: all 0.3s ease;
   box-shadow: 0px 0px 15px #171717;
-  margin:1.5rem;
+  margin: 1.5rem;
 
   &:hover {
     transform: scale(1.03);
@@ -21,11 +21,14 @@ export const PostItemContainer = styled.article`
     text-shadow: var(--rose-bonbon) 0px 0px 2px;
     font-weight: 700;
     margin: 2rem 0rem;
+    padding: 0rem 1rem;
     text-align: center;
     text-decoration: none;
   }
 
   p {
     padding: 2rem 2rem;
+    line-height: 1;
+    font-family: "Roboto";
   }
 `

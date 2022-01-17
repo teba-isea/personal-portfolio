@@ -9,7 +9,7 @@ const PostItem = ({ post, md }) => {
   const title = post.frontmatter.title || post.fields.slug
   const previewImage = post.frontmatter.header.childImageSharp.fixed
   return (
-    <Col sm="12" md={md ? md : "4" }>
+    <Col sm="12" md={md ? md : "4"}>
       <Fade top>
         <PostItemContainer itemScope itemType="http://schema.org/Article">
           <Link to={post.fields.slug} itemProp="url">

@@ -9,7 +9,7 @@ import { Fade, Zoom } from "react-reveal"
 const Experience = () => {
   const pageQuery = useStaticQuery(graphql`
     query {
-      file(name: { eq: "cga-portfolio" }) {
+      file(name: { eq: "viablee" }) {
         childImageSharp {
           fluid(maxHeight: 380) {
             ...GatsbyImageSharpFluid_withWebp
@@ -27,7 +27,7 @@ const Experience = () => {
             <Fade left>
               <h1>As Front-End</h1>
               <ExperienceItem
-                skillName="HTML5,CSS3 & ES2020"
+                skillName="HTML5,CSS3 & ES2021"
                 colors="rgba(246,74,29,1) 0%, rgba(1,167,221,1) 50%, rgba(247,214,0,1) 100%"
               />
               <ExperienceItem
@@ -81,20 +81,21 @@ const Experience = () => {
                 className="img-fluid w-100"
               >
                 <a
-                  href="https://portafolio.cgaautomation.com"
+                  href="https://viablee.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <div className="bg-text">
-                    <h1 className="text-center">CGA Portfolio</h1>
+                    <h1 className="text-center">Viablee</h1>
                     <p>
-                      developing and maintaining complete digital identity with
-                      presentation website, dynamic portfolio and email service
-                      through rest api
+                      Is a eco-friendly E-commerce website that offers high
+                      quality products with the least environmental impact.
+                      Adding one more effort to the mission of achieving a
+                      sustainable economy on a sustainable planet
                     </p>
                     <p>
-                      The main technologies used to achieve this were vanilla
-                      development, ReactJs, GraphQl and ExpressJs .
+                      The main technologies used to achieve this were ReactJs ,
+                      Nextjs, ExpressJs and MongoDB .
                     </p>
                   </div>
                 </a>
@@ -102,7 +103,7 @@ const Experience = () => {
             </Fade>
           </Col>
           <Col sm="6">
-            <a href="https://resume.io/r/Fx7B3prx0">
+            <a href="https://download1325.mediafire.com/id9anvlr2ljg/rgmmyvzu4stxc7w/Esteban+Isea+-+CV.pdf">
               <Fade bottom delay={1100}>
                 <div className="d-flex justify-content-center">
                   <Button className="button w-100 w-md-75" outline>
@@ -131,7 +132,7 @@ const Experience = () => {
 
 const ExperienceContainer = styled.section`
   background-color: var(--raisin-black);
-  padding: 5rem 2rem;
+  padding: 3rem 1.5rem;
 
   h1 {
     text-shadow: var(--opal) 0px 0px 2px;
@@ -140,7 +141,7 @@ const ExperienceContainer = styled.section`
   }
 
   p {
-    font-size: 2rem;
+    font-size: 1.7rem;
     padding: 0rem 1.2rem;
     font-weight: bold;
   }
@@ -181,7 +182,7 @@ const ExperienceContainer = styled.section`
       margin-top: 0.2rem;
       margin-bottom: 0rem;
     }
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     background-image: linear-gradient(
       to top,
       rgba(34, 49, 53, 0.75),

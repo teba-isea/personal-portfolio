@@ -1,7 +1,7 @@
-import React, { useState} from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Typed from "react-typed"
-import {Zoom} from "react-reveal"
+import { Zoom } from "react-reveal"
 import { HeroContainer, ImageText } from "../styleds/Hero"
 
 const Hero = () => {
@@ -22,7 +22,7 @@ const Hero = () => {
     "Soy Esteban Isea",
     "Un Ciudadano de Internet",
     "Blogs, Guias y Tutoriales",
-    "#2021!!!",
+    "#2022!!!",
     "Les deseo un año sin Issues",
     "NUNCA Pares de aprender!",
     "#BlackLivesMatter",
@@ -37,14 +37,14 @@ const Hero = () => {
   return (
     <HeroContainer fluid={imgFluid} fadeIn="soft">
       <ImageText>
-	<Zoom clear>
-        <div>
-          <h1 className="text-center text-md-left text-break">
-            <Typed strings={phrases} loop backSpeed={40} typeSpeed={70} />
-          </h1>
-        </div>{" "}
-	</Zoom>
-        <p className="font-weight-bold">Un Desarrollador En 2021</p>
+        <Zoom clear>
+          <div>
+            <h1 className="text-center text-md-left text-break">
+              <Typed strings={phrases} loop backSpeed={40} typeSpeed={70} />
+            </h1>
+          </div>{" "}
+        </Zoom>
+        <p className="font-weight-bold">Un Desarrollador En 2022</p>
       </ImageText>
     </HeroContainer>
   )
